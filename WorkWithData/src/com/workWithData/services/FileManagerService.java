@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.workWithData.Entity.ConnectionEntity;
 
-import ua.com.qalight.entity.ConnectionLog;
 
 public class FileManagerService {
 
@@ -24,8 +23,11 @@ public class FileManagerService {
 	public static void writeConnectionEntityToFile(ConnectionEntity connectionEntity, boolean append) {
 		
 		try (FileWriter fileWriter = new FileWriter(TEXT_FILE_PATH, append)){
+			
 			fileWriter.write(connectionEntity.toString() + "\n");
 			fileWriter.flush();
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
