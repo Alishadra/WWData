@@ -1,4 +1,4 @@
-package com.workWithData.Entity;
+package com.workWithData.entity;
 
 public class ConnectionEntity {
 	
