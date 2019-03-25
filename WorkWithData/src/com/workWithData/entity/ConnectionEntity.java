@@ -39,12 +39,9 @@ public class ConnectionEntity {
 	@Override
 	public String toString() {
 		
-		return time + "" + sessionId + "" + ip;
+		return time + " " + sessionId + " " + ip;
 	}
 
-	public void add(ConnectionEntity conectionEntity) {
-		
-	}
 	
 	
 

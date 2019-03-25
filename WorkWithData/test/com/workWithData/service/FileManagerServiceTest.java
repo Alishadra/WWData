@@ -1,8 +1,7 @@
 package com.workWithData.service;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
@@ -20,15 +19,6 @@ class FileManagerServiceTest {
 
 	private static List<ConnectionEntity> connectionEntitiesInFile;
 
-	@Test
-	void testWriteObjectToFile() {
-
-	}
-
-	@Test
-	void testReadObjectFromFile() {
-
-	}
 
 	@BeforeAll
 	public static void saveDataFromFile() {
@@ -77,12 +67,12 @@ class FileManagerServiceTest {
 		List<ConnectionEntity> connectionEntities = FileManagerService.readConnectionEntityFromFile();
 		assertEquals(3, connectionEntities.size());
 		
-		FileManagerService.filterConnectionLogFileByTime(10);
+		FileManagerService.filterConnectionLogFileByTime(5);
 		connectionEntities = FileManagerService.readConnectionEntityFromFile();
 		assertEquals(2, connectionEntities.size());
 		for (ConnectionEntity connectionEntity : connectionEntities) {
-			assertTrue(connectionEntities.getTime() != timeOld);
-			assertTrue(connectionEntities.getTime() == timeNow);
+			assertTrue(connectionEntity.getTime() != timeOld);
+			assertTrue(connectionEntity.getTime() == timeNow);
 		}
 		
 	}

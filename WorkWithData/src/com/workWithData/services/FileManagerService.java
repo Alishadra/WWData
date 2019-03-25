@@ -9,8 +9,6 @@ import java.util.List;
 
 import com.workWithData.entity.ConnectionEntity;
 
-import ua.com.qalight.entity.ConnectionLog;
-import ua.com.qalight.service.FileManagerService;
 
 public class FileManagerService {
 
@@ -57,7 +55,7 @@ public class FileManagerService {
 	
 	public static void filterConnectionLogFileByTime(int days) {
 		long marginTime = System.currentTimeMillis() - (1000*60*60*24*days);
-		List<ConnectionEntity> connectionLogs = readConnectionEntityFromFile();
+		List<ConnectionEntity> connectionEntities = readConnectionEntityFromFile();
 		boolean append = false;
 		for (ConnectionEntity connectionEntity : connectionEntities) {
 			if(connectionEntity.getTime() > marginTime) {
