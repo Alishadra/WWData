@@ -8,7 +8,10 @@ public class ConnectionEntity {
 	
 	private String ip;
 
-	public ConnectionEntity(long time2, int sessionId2, String ip2) {
+	public ConnectionEntity(long time, int sessionId, String ip) {
+		this.sessionId = sessionId;
+		this.time = time;
+		this.ip = ip;
 	}
 
 	public int getSessionId() {

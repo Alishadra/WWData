@@ -71,15 +71,15 @@ class FileManagerServiceTest {
 		connectionEntities = FileManagerService.readConnectionEntityFromFile();
 		assertEquals(2, connectionEntities.size());
 		for (ConnectionEntity connectionEntity : connectionEntities) {
-			assertTrue(connectionEntity.getTime() != timeOld);
-			assertTrue(connectionEntity.getTime() == timeNow);
+			assertTrue(connectionEntity.getTime() != timeVeryOld);
+			assertTrue(connectionEntity.getTime() == timeNow || connectionEntity.getTime() == timeOld);
 		}
 		
 	}
 	
 	@AfterAll
 	public static void saveDataToFile() {
-		if(connectionEntitiesInFile.isEmpty()) {
+		if(!connectionEntitiesInFile.isEmpty()) {
 			for (int i = 0; i < connectionEntitiesInFile.size(); i ++) {
 				if (i == 0) {
 					FileManagerService.writeConnectionEntityToFile(connectionEntitiesInFile.get(i), false);
