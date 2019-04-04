@@ -15,7 +15,7 @@ public class FileManagerService {
 	private static final String TEXT_FILE_PATH = System.getProperty("user.dir") + System.getProperty("file.separator")
 			+ "files" + System.getProperty("file.separator") + "file.txt";
 
-	public static void writeConnectionEntityToFile(ConnectionEntity connectionEntity, boolean append) {
+	public synchronized static void writeConnectionEntityToFile(ConnectionEntity connectionEntity, boolean append) {
 
 		try (FileWriter fileWriter = new FileWriter(TEXT_FILE_PATH, append)) {
 
